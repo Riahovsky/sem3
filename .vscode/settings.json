@@ -1,0 +1,30 @@
+{
+    "terminal.integrated.profiles.windows": {
+    "PowerShell": {
+      "source": "PowerShell",
+      "icon": "terminal-powershell"
+    },
+    "Command Prompt": {
+      "path": [
+        "${env:windir}/Sysnative/cmd.exe",
+        "${env:windir}/System32/cmd.exe"
+      ],
+      "args": [],
+      "icon": "terminal-cmd"
+    },
+    "MSYS2": {
+      "path": "C:/msys64/usr/bin/bash.exe",  // Could be another for your system
+      "args": [
+        "--login",
+        "-i"
+      ],
+      "env": {
+        "MSYSTEM": "MINGW64",
+        "CHERE_INVOKING": "1"
+      }
+    }
+  },
+  "terminal.integrated.defaultProfile.windows": "MSYS2",  // Choose default shell for VSCode
+  "cmake.cmakePath": "C:/msys64/usr/bin/cmake.exe",  // Could be another for your system
+  "C_Cpp.default.compilerPath": "C:/msys64/usr/bin/g++.exe",  // Could be another for your system
+}
