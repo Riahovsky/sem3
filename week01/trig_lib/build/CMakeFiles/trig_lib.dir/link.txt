@@ -1,0 +1,1 @@
+/usr/bin/g++.exe -Wl,--enable-auto-import CMakeFiles/trig_lib.dir/main.cpp.o CMakeFiles/trig_lib.dir/src/my_math.cpp.o -o /c/Users/user/Desktop/sem3/week01/trig_lib/bin/trig_lib.exe -Wl,--out-implib,libtrig_lib.dll.a -Wl,--major-image-version,0,--minor-image-version,0
