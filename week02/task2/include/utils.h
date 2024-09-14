@@ -1,0 +1,1 @@
+void write_image(int WIDTH, int HEIGHT);
