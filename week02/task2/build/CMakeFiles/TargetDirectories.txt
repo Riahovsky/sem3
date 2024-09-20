@@ -1,3 +1,0 @@
-/c/Users/user/Desktop/sem3/week02/task2/build/CMakeFiles/task2.dir
-/c/Users/user/Desktop/sem3/week02/task2/build/CMakeFiles/edit_cache.dir
-/c/Users/user/Desktop/sem3/week02/task2/build/CMakeFiles/rebuild_cache.dir

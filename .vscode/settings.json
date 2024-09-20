@@ -26,6 +26,6 @@
 },
 "terminal.integrated.defaultProfile.windows": "PowerShell",  // Choose default shell for VSCode
 "cmake.cmakePath": "C:/msys64/usr/bin/cmake.exe",
-"C_Cpp.default.compilerPath": "C:\\Program Files\\LLVM\\bin\\clang.exe", // Could be another for your system
+"C_Cpp.default.compilerPath": "C:\\msys64\\usr\\bin\\gcc.exe", // Could be another for your system
 // "C_Cpp.default.compilerPath": "C:/msys64/usr/bin/g++.exe",  // Could be another for your system
 }

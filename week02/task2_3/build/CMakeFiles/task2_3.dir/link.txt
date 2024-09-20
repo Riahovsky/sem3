@@ -1,0 +1,1 @@
+/usr/bin/g++.exe -Wl,--enable-auto-import CMakeFiles/task2_3.dir/main.cpp.o CMakeFiles/task2_3.dir/src/utils.cpp.o -o /c/Users/user/Desktop/sem3/week02/task2_3/bin/task2_3.exe -Wl,--out-implib,libtask2_3.dll.a -Wl,--major-image-version,0,--minor-image-version,0
