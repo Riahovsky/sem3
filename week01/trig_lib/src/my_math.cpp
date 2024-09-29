@@ -1,9 +1,15 @@
 #include <iostream>
+#include "my_math.hpp"
+
 using namespace std;
 
-void my_sin(double x) {
+AnswerHandler my_sin(double x) {
     double a = x-(x*x*x)/6 + (x*x*x*x*x)/120 - (x*x*x*x*x*x*x)/5040;
     cout << "sin " << x << " = " <<  a << endl;
+    AnswerHandler result;
+    result.x = x;
+    result.fun = a;
+    
 }
 
 void my_cos(double x){

@@ -54,7 +54,31 @@ Node* Node:: NIL = new Node(0);
 bool Node::isConected() const {
     return this->next != nullptr;
 }
+class Human {
+    protected:
+    int age;
 
+    public:
+    Human() {
+        
+    }
+    virtual void privet() const = 0;
+    virtual void LevelUp() = 0;
+    virtual bool isDead() const = 0;
+
+    virtual ~Human() {};
+};
+
+class Teacher : public Human {
+public:
+virtual void privet() const{};
+virtual void levelUp() {
+    ++age;
+}
+virtual bool isDead() const {
+return age > 200;
+}
+};
 
 int main () {
     Node HEAD = Node(42);
@@ -62,5 +86,8 @@ int main () {
     Node middle = 14; // = Node(14);
     HEAD.set(21);
     cout << HEAD.get() ;
+
+    Human h = Human();
+
     return 0;
     }

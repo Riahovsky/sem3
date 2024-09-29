@@ -132,4 +132,5 @@ CMakeFiles/trig_lib.dir/main.cpp.o: \
  /usr/lib/gcc/x86_64-pc-msys/13.3.0/include/c++/bits/ostream.tcc \
  /usr/lib/gcc/x86_64-pc-msys/13.3.0/include/c++/istream \
  /usr/lib/gcc/x86_64-pc-msys/13.3.0/include/c++/bits/istream.tcc \
- /c/Users/user/Desktop/sem3/week01/trig_lib/include/my_math.hpp
+ /c/Users/user/Desktop/sem3/week01/trig_lib/include/my_math.hpp \
+ /c/Users/user/Desktop/sem3/week01/trig_lib/include/ans_handler.hpp
