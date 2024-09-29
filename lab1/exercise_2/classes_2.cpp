@@ -40,4 +40,3 @@ double value_probability(unsigned value, Abstract_Dice &d, unsigned number_of_ro
 }
 
 
-
