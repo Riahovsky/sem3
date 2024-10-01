@@ -78,7 +78,9 @@
   "text_encoding": "cpp",
   "typeinfo": "cpp",
   "variant": "cpp",
-  "fstream": "cpp"
-}, // Could be another for your system
+  "fstream": "cpp",
+  "cstdarg": "cpp"
+},
+"C_Cpp.errorSquiggles": "disabled", // Could be another for your system
 // "C_Cpp.default.compilerPath": "C:/msys64/usr/bin/g++.exe",  // Could be another for your system
 }
