@@ -43,7 +43,7 @@ class  PenaltyDice : virtual public Abstract_Dice {
   public:
   Dice& d11;
   Dice& d21;
-  PenaltyDice(Dice& d1, Dice& d2): d11(d11),d21(d21) {}
+  PenaltyDice(Dice& d11, Dice& d21): d11(d11),d21(d21) {}
   unsigned roll() override{
     unsigned A1 = d11.roll();
     unsigned A2 = d21.roll();
@@ -55,7 +55,7 @@ class BonusDice : virtual public Abstract_Dice {
   public:
    Dice& d12;
    Dice& d22;
-   BonusDice(Dice& d1, Dice& d2): d12(d12),d22(d22) {}
+   BonusDice(Dice& d12, Dice& d22): d12(d12),d22(d22) {}
   unsigned roll() override{
     unsigned B1 = d12.roll();
     unsigned B2 = d22.roll();
@@ -79,7 +79,6 @@ double value_probability(unsigned value,Abstract_Dice &d, unsigned number_of_rol
 
 class DoubleDice: public PenaltyDice, public BonusDice {
     public:
-//using DoubleDice::BonusDice::Abstract_Dice;
     DoubleDice(Dice& d): PenaltyDice(d,d) , BonusDice(d,d) { }
     unsigned roll() override {
         return PenaltyDice::roll() + BonusDice::roll();
@@ -88,15 +87,43 @@ class DoubleDice: public PenaltyDice, public BonusDice {
 };
 
 
+class Another_DoubleDice: public Abstract_Dice {
+    public:
+    Dice& d;
+    BonusDice bonus = BonusDice(d,d);
+    PenaltyDice penalty = PenaltyDice(d,d);
+    
+    Another_DoubleDice(Dice& d): d(d) { }
+    unsigned roll() override {
+        return bonus.roll() + penalty.roll();
+    }
+
+};
+
+
+
 int main() {
   int i = 0;
   Dice d = Dice(100,1); 
   
   DoubleDice dd = DoubleDice(d); 
+  Another_DoubleDice a_dd = Another_DoubleDice(d);
+
   for(i = 0; i < 5;++i) {
   std::cout << "Expected value " << expected_value(dd) << std::endl;
   }
 
+std:: ofstream fin("DoubleDice.txt");
+   for (i = 0; i <= 201; ++i) {
+    fin << value_probability(i, dd) ;
+    fin << std::endl;
+  }
+fin.close();
+
+std::cout << std::endl;
+for(i = 0; i < 5;++i) {
+std::cout << "Expected value (2) " << expected_value(a_dd) << std::endl;
+}
 
 
   return 0;
