@@ -39,7 +39,7 @@ double expected_value(Abstract_Dice &d, unsigned number_of_rolls = 100) {
   return static_cast<double>(accum) / static_cast<double>(number_of_rolls);
 }
 
-class  PenaltyDice : public Abstract_Dice {
+class  PenaltyDice : virtual public Abstract_Dice {
   public:
   Dice& d11;
   Dice& d21;
@@ -51,7 +51,7 @@ class  PenaltyDice : public Abstract_Dice {
   }
 };
 
-class BonusDice : public Abstract_Dice {
+class BonusDice : virtual public Abstract_Dice {
   public:
    Dice& d12;
    Dice& d22;
@@ -79,7 +79,7 @@ double value_probability(unsigned value,Abstract_Dice &d, unsigned number_of_rol
 
 class DoubleDice: public PenaltyDice, public BonusDice {
     public:
-using BonusDice::Abstract_Dice ;
+//using DoubleDice::BonusDice::Abstract_Dice;
     DoubleDice(Dice& d): PenaltyDice(d,d) , BonusDice(d,d) { }
     unsigned roll() override {
         return PenaltyDice::roll() + BonusDice::roll();
