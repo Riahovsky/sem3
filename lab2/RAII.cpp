@@ -92,7 +92,7 @@ public:
     }
     Grid()
     {
-        Grid(0, 0, 0);
+        Grid(nullptr, 0, 0);
     }
 
     T* operator[](unsigned int index) 
