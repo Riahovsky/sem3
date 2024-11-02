@@ -1,8 +1,10 @@
-#include "classes_1.h" 
+#include <iostream>
+
+
 
 
 int main() {
-  Dice d1 = Dice(2,3);
+      Dice d1 = Dice(2,3);
   Dice d2 = Dice(8,5);
   Dice d3 = Dice(2,9);
 

@@ -1,0 +1,1 @@
+double expected_value(Abstract_Dice &d, unsigned number_of_rolls);
