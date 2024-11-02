@@ -61,7 +61,7 @@ public:
     Grid(size_type y_size, size_type x_size, T const &t) : y_size(y_size), x_size(x_size), data(static_cast<T*>(::operator new (x_size * y_size * sizeof(T))))
     {   
     
-        for (int i = 0; i < (int)x_size*(int)y_size; ++i)
+        for (int i = 0; i <= ((int)(x_size)-1)*((int)(y_size)-1); ++i)
         {   
                 data[i] = t;
             
