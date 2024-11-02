@@ -33,6 +33,8 @@ public:
     {
         Grid<T> tmp(std::move(src));
         std::swap(this->data, src.data);
+        x_size = tmp.x_size;
+        y_size = tmp.y_size;
     }
 
     Grid<T> &operator()(size_type y_idx, size_type x_idx) const
