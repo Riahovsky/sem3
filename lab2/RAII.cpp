@@ -74,12 +74,15 @@ public:
         Grid(nullptr, 0, 0);
     }
 
-    T operator[](unsigned int index) 
-    {
-        return data[index];
+
+
+    class GridProxy {
+
+    };
+
+    GridProxy operator[] {
+        return GridProxy(data, x_size, y_size, id_y);
     }
-
-
     size_type get_y_size() const { return y_size; }
     size_type get_x_size() const { return x_size; }
 
@@ -87,4 +90,5 @@ public:
     {
         delete[] data;
     }
+
 };
