@@ -15,9 +15,12 @@ public:
     Grid(T *data, size_type y_size, size_type x_size) : data(data), y_size(y_size), x_size(x_size) { }
 
     Grid(Grid<T> const &src) : Grid(src.data, src.y_size, src.x_size) {}
-    Grid(Grid<T> &&src) : data(src.data)
+    Grid(Grid<T> &&src) : data(src.data), y_size(src.y_size), x_size(src.x_size)
     {
         src.data = nullptr;
+        src.y_size = 0;
+        src.x_size = 0;
+
     }
     Grid<T> &operator=(Grid<T> const &scr)
     {
