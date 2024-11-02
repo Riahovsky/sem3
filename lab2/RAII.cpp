@@ -58,16 +58,13 @@ public:
     }
     Grid(size_type y_size, size_type x_size) : y_size(y_size), x_size(x_size), data(::operator new (x_size * y_size * sizeof(T))) {}
 
-    Grid(size_type y_size, size_type x_size, T const &t) : y_size(y_size), x_size(x_size), data(::operator new (x_size * y_size * sizeof(T)))
+    Grid(size_type y_size, size_type x_size, T const &t) : y_size(y_size), x_size(x_size)
     {
-        // data = data_zero;
-        // delete[] data_zero;
-        for (int i = 0; i < x_size; ++i)
-        {
-            for (int j = 0; j < y_size; ++j)
-            {
-                data[i*j] = t;
-            }
+        data(::operator new (x_size * y_size * sizeof(T)));
+        for (int i = 0; i < (int)x_size*(int)y_size; ++i)
+        {   
+                data[i] = t;
+            
         }
     }
     Grid()
