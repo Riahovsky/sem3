@@ -56,9 +56,9 @@ public:
         data = new T[1];
         data[0] = t;
     }
-    Grid(size_type y_size, size_type x_size) : y_size(y_size), x_size(x_size), data(::operator new x_size * y_size * sizeof(T)) {}
+    Grid(size_type y_size, size_type x_size) : y_size(y_size), x_size(x_size), data(::operator new (x_size * y_size * sizeof(T))) {}
 
-    Grid(size_type y_size, size_type x_size, T const &t) : y_size(y_size), x_size(x_size), data(::operator new x_size * y_size * sizeof(T))
+    Grid(size_type y_size, size_type x_size, T const &t) : y_size(y_size), x_size(x_size), data(::operator new (x_size * y_size * sizeof(T)))
     {
         // data = data_zero;
         // delete[] data_zero;
