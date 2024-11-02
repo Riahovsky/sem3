@@ -8,11 +8,11 @@ public:
     using size_type = unsigned;
 
     // private:
-    T **data;
     size_type const y_size;
     size_type const x_size;
+     T *data;
 
-    Grid(T **data, size_type y_size, size_type x_size) : data(data), y_size(y_size), x_size(x_size) { }
+    Grid(T *data, size_type y_size, size_type x_size) : data(data), y_size(y_size), x_size(x_size) { }
 
     Grid(Grid<T> const &src) : Grid(src.data, src.y_size, src.x_size) {}
     Grid(Grid<T> &&src) : data(src.data)
@@ -53,40 +53,20 @@ public:
 
     Grid(T const &t) : y_size{1}, x_size{1}
     {
-        data = new T*[1];
-        data[0] = new T[1];
-        data[0][0] = t;
+        data = new T[1];
+        data[0] = t;
     }
-    Grid(size_type y_size, size_type x_size) : y_size(y_size), x_size(x_size)
-    {
-        data = new T *[x_size];
-        for (int k = 0; k < (int)x_size; ++k)
-        {
-            data[k] = new T[y_size];
-        }
-        for (int i = 0; i < x_size; ++i)
-        {
-            for (int j = 0; j < y_size; ++j)
-            {
-                data[i][j] = T{};
-            }
-        }
-    }
+    Grid(size_type y_size, size_type x_size) : y_size(y_size), x_size(x_size), data(::operator new x_size * y_size * sizeof(T)) {}
 
-    Grid(size_type y_size, size_type x_size, T const &t) : y_size(y_size), x_size(x_size)
+    Grid(size_type y_size, size_type x_size, T const &t) : y_size(y_size), x_size(x_size), data(::operator new x_size * y_size * sizeof(T))
     {
-        data = new T *[x_size];
-        for (int k = 0; k < (int)x_size; ++k)
-        {
-            data[k] = new T[y_size];
-        }
         // data = data_zero;
         // delete[] data_zero;
         for (int i = 0; i < x_size; ++i)
         {
             for (int j = 0; j < y_size; ++j)
             {
-                data[i][j] = t;
+                data[i*j] = t;
             }
         }
     }
@@ -95,7 +75,7 @@ public:
         Grid(nullptr, 0, 0);
     }
 
-    T* operator[](unsigned int index) 
+    T operator[](unsigned int index) 
     {
         return data[index];
     }
