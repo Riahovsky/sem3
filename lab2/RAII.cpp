@@ -81,35 +81,26 @@ public:
 
 
 
-    class GridProxy {
+    class Proxy {
+        T* data;
         public:
-        T* data_proxy;
-        size_type const y_size_p;
-        size_type const x_size_p;
-        unsigned int y;
-        GridProxy(T* data_zero, size_type ysize, size_type xsize, unsigned int y0): data_proxy(data_zero),y_size_p(ysize), x_size_p(xsize),y(y0) {
-
+       // size_type const y_size_p;
+        //size_type const x_size_p;
+        //unsigned int y;
+        Proxy(T* data): data(data) { }
+        T& operator[](size_type idx) const {
+            return data[idx];
         }
-    
-        const T& operator[](unsigned int id_x)  {
-            return data_proxy[id_x * y];
-        }
-
-        T operator[](unsigned int id_x) const {
-            return data_proxy[id_x * y];
-        }
-        ~GridProxy() {
-            delete[] data_proxy;
-        }
+        //~Proxy() {
+         //   delete[] data;
+        //}
         };
 
-    const GridProxy& operator[](unsigned int id_y) {
-        return GridProxy(data, y_size, x_size, id_y);
+    Proxy operator[](size_type idx) const {
+        return Proxy(data+idx*x_size);
     }
-    
-    GridProxy operator[](unsigned int id_y) const {
-        return GridProxy(data, y_size, x_size, id_y);
-    }
+
+
     size_type get_y_size() const { return y_size; }
     size_type get_x_size() const { return x_size; }
 
