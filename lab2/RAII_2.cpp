@@ -50,7 +50,7 @@ public:
 	}
 
 	/// /// /// /// /// 
-	Grid<T> operator=(Grid<T>& other) {
+	Grid<T>& operator=(Grid<T>& other) {
 		if (this != other) {
 			data = other._data;
 			y_size = other._y_size;
@@ -61,7 +61,7 @@ public:
 	}
 
 	/// /// /// /// /// 
-	Grid<T> operator=(Grid<T>&& other)  {
+	Grid<T>& operator=(Grid<T>&& other)  {
 		if (this != other) {
 			delete[] data;
 			data = other._data;
@@ -71,8 +71,8 @@ public:
             other._y_size = 0;
             other._x_size = 0;
 		}
-		return *this;
 		std::cout << "=Move" << std::endl;
+		return *this;
 	}
 
 	//// //// //// //// ////
